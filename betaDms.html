@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>(7) Inbox • Chats</title>
+    <!-- <title>betadms</title> -->
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon" />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Montserrat:wght@300;500&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* font-family: "Merriweather", serif; */
+        font-family: "Montserrat", sans-serif;
+
+      }
+
+      body {
+        background-color: black;
+        user-select: none;
+      }
+      .header {
+        position: fixed;
+        top:0px;
+        left:0px;
+
+        width: 100%;
+        background-color: black;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 0 20px;
+        z-index:2;
+      }
+
+
+
+      .header img {
+        height: 40px;
+      }
+
+      .header .icons {
+        display: flex;
+      }
+
+      .header .icons img {
+        height: 30px;
+        margin: 0 10px;
+      }
+
+      .messages {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        border: 0px;
+        overflow-y: scroll;
+      }
+
+      .message {
+        display: flex;
+        align-items: center;
+        margin: 10px 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+
+      }
+
+      .message:hover {
+        background-color: black;
+        border: 2px solid #1a1a1a;
+      }
+
+
+      .message__avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+      }
+
+      .message__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .message__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: black;
+        padding: 10px 0px;
+        border-radius: 0px;
+        max-width: 70%;
+      }
+
+      .message__content p {
+        margin: 0;
+        font-size: 14px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.5;
+        color: white;
+        word-break: break-all;
+      }
+
+      .message__time {
+        font-size: 12px;
+        color: #8e8e8e;
+        margin-left: 10px;
+      }
+
+      .msg {
+        padding: 0;
+        box-sizing: border-box;
+        align-items: center;
+        margin: 10px 20px;
+        display: flex;
+        margin-bottom: 20px;
+        cursor: pointer;
+        color: white;
+      }
+
+      .username{
+        color: white;
+      }
+
+      .wish{
+        margin: 0;
+        font-size: 13px;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.5;
+        color: white;
+        word-break: break-all;
+        display:inline;
+
+      }
+
+      .back{
+        border:0;
+
+        background-color: black;
+      }
+      span.bluedot,span.cam{
+        padding-left: 10px;
+        font-size: 0.8em;
+        line-height: 1;
+      }
+
+
+    </style>
+    <script>
+    function goToPage(url) {
+      window.location.href = url;
+    }
+    </script>
+  </head>
+
+
+
+
+
+  <body>
+		<div class="messages">
+        <div class="header">
+          <a href="index.html">
+          <button class="back" style="position:relative;left:-20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+            <rect x="0" y="0" width="50" height="50" fill="black"/>
+            <path d="M35 24.5H14.5l8-8-1.5-1.5-10 10 12 12 1.5-1.5-8-8H35v-3z" fill="#fff"  />
+
+            </svg>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+              <rect x="0" y="0" width="90" height="90" fill="black"/>
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" fill="#fff"/>
+            </svg> -->
+
+          </button>
+          </a>
+
+          <!-- <img src="assets/rm.jpg" alt="Profile Picture"> -->
+          <span class="username">sruthikive</span>
+          <i class="fa fa-chevron-down"></i>
+        </div>
+				<div class="msg" style="margin-top:65px;">
+
+					<p>Messages</p>
+
+				</div>
+        <div class="message-list">
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/rm.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('1.html')" class="message__content">
+              <p>RM <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative ;z-index:1;"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/v.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('2.html')" class="message__content">
+              <p>thv <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/jkook.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('3.html')" class="message__content">
+              <p>jungkook. <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/jin.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('4.html')" class="message__content">
+              <p>jin <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/suga.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('5.html')" class="message__content">
+              <p>agustd <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/jimin.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('6.html')" class="message__content">
+              <p>j.m <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative"></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/hope.jpg" alt="Profile Picture">
+            </div>
+            <div onclick="goToPage('7.html')" class="message__content">
+              <p>uarmyhope <img class="post__user-verified" src="assets/correct1.png" style="transform: scale(0.80); width:22px; height:20px; border-left-width:10px; padding-left:7px; padding-top:2px;  top:4px; left:-8px; position:relative; "></p>
+              <p><span class="wish">3 new messages<span class="message__time"> now <span class="bluedot">🔵 </span></span></span></p>
+            </div>
+          </div>
+
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/sv.jpg" alt="Profile Picture">
+            </div>
+            <div  class="message__content">
+              <p>just_me12137</p>
+              <p><span class="wish">Active 2h ago</span></p>
+            </div>
+          </div>
+
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/fr4.jpg" alt="Profile Picture">
+            </div>
+            <div class="message__content">
+              <p>vardhan_heart_ticker</p>
+              <p><span class="wish">Active 1h ago</span></p>
+            </div>
+          </div>
+
+
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/frnd2.jpg" alt="Profile Picture">
+            </div>
+            <div class="message__content">
+              <p>devi_priya_chowdary</p>
+              <p><span class="wish">Active 1h ago</span></p>
+            </div>
+          </div>
+
+
+          <div class="message">
+            <div class="message__avatar">
+              <img src="assets/fr3.jpg" alt="Profile Picture">
+            </div>
+            <div class="message__content">
+              <p>prerana_guduru</p>
+              <p><span class="wish">Active 3h ago</span></p>
+            </div>
+          </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Story with Timer</title>
+	<style>
+		body {
+			background-color: #f0f0f0;
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			position: relative;
+			width: 300px;
+			height: 500px;
+			margin: 0 auto;
+			overflow: hidden;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+		}
+
+		.story {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 1;
+			transition: opacity 0.3s ease-in-out;
+		}
+
+		.story.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.timer {
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: #222;
+			padding: 10px 20px;
+			border-radius: 20px;
+			font-size: 20px;
+			color: #fff;
+			display: none;
+		}
+
+		.close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 30px;
+			color: #222;
+			cursor: pointer;
+			display: none;
+		}
+
+		.close:hover {
+			color: #f44336;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+
+    <img class="story" src="story-image.jpg">
+  	<div class="timer">5</div>
+  	<div class="close">&times;</div>
+
+  </div>
+
+  <script>
+  	const story = document.querySelector('.story');
+  	const timer = document.querySelector('.timer');
+  	const close = document.querySelector('.close');
+
+  	let time = 5;
+  	let timerInterval;
+
+  	// Start the timer when the story is loaded
+  	story.addEventListener('load', () => {
+  		timerInterval = setInterval(() => {
+  			time--;
+  			timer.textContent = time;
+
+  			// When the timer reaches 0, hide the story and stop the timer
+  			if (time === 0) {
+  				clearInterval(timerInterval);
+  				story.classList.add('hidden');
+  				timer.classList.add('hidden');
+  				close.classList.add('hidden');
+  			}
+  		}, 1000);
+
+  		timer.style.display = 'block';
+  		close.style.display = 'block';
+  	});
+
+  	// Close the story when the close button is clicked
+  	close.addEventListener('click', () => {
+  		story.classList.add('hidden');
+  		timer.classList.add('hidden');
+  		close.classList.add('hidden');
+  		clearInterval(timerInterval);
+  	});
+
+  </script>
+</body>
+</html>
